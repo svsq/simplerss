@@ -156,13 +156,13 @@ public class MainActivity extends AppCompatActivity {
                         if (name.equalsIgnoreCase("item")) {
                             isItem = false;
                         }
-                        //continue;
+                        continue;
                     }
 
                     if (eventType == XmlPullParser.START_TAG) {
                         if (name.equalsIgnoreCase("item")) {
                             isItem = true;
-                            //continue;
+                            continue;
                         }
                     }
 
