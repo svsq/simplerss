@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             }
             try {
                 if (!urlLink.startsWith("http://") && !urlLink.startsWith("https://")) {
-                    urlLink = "http://" + urlLink;
+                    urlLink = "https://" + urlLink;
                 }
 
                 URL url = new URL(urlLink);
