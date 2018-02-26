@@ -2,4 +2,7 @@
     <string name="app_name">SimpleRSS</string>
     <string name="fetch">Fetch</string>
     <string name="rss_feed_source">RSS feed source</string>
+    <string name="feed_title">Feed Title: %1$s</string>
+    <string name="feed_desription">Feed Description: %1$s</string>
+    <string name="feed_link">Feed Link: %1$s</string>
 </resources>

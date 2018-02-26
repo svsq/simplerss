@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private EditText editText;
-    private Button fetchFeedButton;
     private SwipeRefreshLayout swipeRefreshLayout;
     private TextView feedTitleTextView;
     private TextView feedLinkTextView;
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         editText = findViewById(R.id.rssFeedEditText);
-        fetchFeedButton = findViewById(R.id.fetchFeedButton);
+        Button fetchFeedButton = findViewById(R.id.fetchFeedButton);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         feedTitleTextView = findViewById(R.id.feedTitle);
         feedDescriptionTextView = findViewById(R.id.feedDescription);
@@ -81,11 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
         private String urlLink;
 
-    /*public void execute(Void aVoid) {
-
-
-    }*/
-
         @Override
         protected void onPreExecute() {
             swipeRefreshLayout.setRefreshing(true);
@@ -97,10 +91,13 @@ public class MainActivity extends AppCompatActivity {
             swipeRefreshLayout.setRefreshing(false);
 
             if (success) {
-                feedTitleTextView.setText("Feed Title: " + feedTitle);
-                feedDescriptionTextView.setText("Feed Description: " + feedDescription);
-                feedLinkTextView.setText("Feed Link: " + feedLink);
-                // fill recyclerview
+                feedTitleTextView.setText(String.format(
+                        getString(R.string.feed_title), feedTitle));
+                feedDescriptionTextView.setText(String.format(
+                        getString(R.string.feed_desription), feedDescription));
+                feedLinkTextView.setText(String.format(
+                        getString(R.string.feed_link), feedLink));
+
                 recyclerView.setAdapter(new RSSFeedListAdapter(feedModelList));
             } else {
                 Toast.makeText(MainActivity.this, "Enter a valid RSS URL!",
